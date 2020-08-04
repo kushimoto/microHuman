@@ -22,6 +22,9 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	/* キー入力用 */
 	int ch;
 
+	/* 画面更新 */
+	refresh();		
+
 	/* カーソルを表示しない */
 	curs_set(0);
 
@@ -106,6 +109,8 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 		/* X座標設定 */
 		pointX = (beforeWidth - menuMaxWidth) / 2;
 		pointY++;
+		/* 画面更新 */
+		refresh();		
 	}
 
 	/* 縦の感覚をとる */
