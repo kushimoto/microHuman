@@ -64,23 +64,6 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	for (int i = 0; i < MAP_BASE; i++) {
 		for (int j = 0; j < MAP_BASE; j++) {
 
-			if ((courseData->map[i][j] > 4) && (j % 2 == 1)) {
-				mvprintw(pointY, pointX, " p ");
-				pointX += 3;
-				continue;
-			} else if ((courseData->map[i][j] > 4) && (j % 2 == 0)) {
-				mvprintw(pointY, pointX++, "p");
-				continue;
-			} else if ((courseData->map[i][j] < 0) && (j % 2 == 1)) {
-				mvprintw(pointY, pointX, " m ");
-				pointX += 3;
-				continue;
-			} else if ((courseData->map[i][j] < 0) && (j % 2 == 0)) {
-				mvprintw(pointY, pointX++, "m");
-				continue;
-			} 
-
-
 			if (courseData->map[i][j] == 4) {
 				/* 描画 */
 				mvprintw(pointY, pointX++, "+");
@@ -109,8 +92,6 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 		/* X座標設定 */
 		pointX = (beforeWidth - menuMaxWidth) / 2;
 		pointY++;
-		/* 画面更新 */
-		refresh();		
 	}
 
 	/* 縦の感覚をとる */

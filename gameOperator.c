@@ -21,6 +21,8 @@ void gameOperator(COURSE_DATA* courseData) {
 	/* 初期位置セット */
 	gameCursorMovement(courseData, &pY, &pX, 0);
 
+	clear();
+
 	/* 描画 */
 	gameDrawMap(courseData, mode, 0, 0);
 
@@ -54,6 +56,9 @@ void gameOperator(COURSE_DATA* courseData) {
 				break;
 			case 'q':
 				return ;
+			default:
+				clear();
+				break;
 				
 		}
 
