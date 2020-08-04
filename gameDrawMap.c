@@ -14,7 +14,7 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	/* メインメニュー横幅 */
 	int menuMaxWidth; 
 	/* メインメニュー縦幅 */
-	int menuMaxHeight = 43;
+	int menuMaxHeight = 39;
 
 	/* 画面サイズ取得 */
 	getmaxyx(stdscr, beforeHeight, beforeWidth);
@@ -55,7 +55,7 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	}
 
 	/* 縦の感覚をとる */
-	pointY += 5;
+	pointY += 2;
 
 	/* X座標設定 */
 	menuMaxWidth = 65;
@@ -95,7 +95,7 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	}
 
 	/* 縦の感覚をとる */
-	pointY += 3;
+	pointY += 2;
 
 	if (mode == 3) {
 		menuMaxWidth = 30;
