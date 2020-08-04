@@ -119,6 +119,8 @@ char* rankingDrawMenu(char** name) {
 				break;
 
 			case '\n':
+				if (selectedNumber < '1') 
+					continue;
 				goto ENTER;
 
 			case 'q':
@@ -131,6 +133,7 @@ char* rankingDrawMenu(char** name) {
 		} else if (selectedNumber > ('0' + rCourseNum)) {
 			selectedNumber = ('0' + rCourseNum);
 		}
+
 
 	}
 

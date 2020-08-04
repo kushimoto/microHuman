@@ -119,6 +119,8 @@ char* gameDrawMenu(char** name) {
 				break;
 
 			case '\n':
+				if (selectedNumber < '1') 
+					continue;
 				goto ENTER;
 
 			case 'q':

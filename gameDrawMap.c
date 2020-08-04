@@ -22,9 +22,6 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 	/* キー入力用 */
 	int ch;
 
-	/* 画面消去 */
-	clear();
-
 	/* カーソルを表示しない */
 	curs_set(0);
 
@@ -97,8 +94,11 @@ void gameDrawMap(COURSE_DATA* courseData, int mode, time_t t, int rank) {
 				pointX += 3;
 			} else if ((courseData->map[i][j] == 0) && (j % 2 == 1)) {
 				/* 描画 */
+				mvprintw(pointY, pointX, "   ");
 				pointX += 3;
 			} else if ((courseData->map[i][j] == 0) && (j % 2 == 0)) {
+				/* 描画 */
+				mvprintw(pointY, pointX, " ");
 				pointX++;
 			}
 

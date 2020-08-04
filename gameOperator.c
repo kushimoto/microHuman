@@ -24,7 +24,7 @@ void gameOperator(COURSE_DATA* courseData) {
 	/* 描画 */
 	gameDrawMap(courseData, mode, 0, 0);
 
-	while (ch != 'q') {
+	while (1) {
 		switch (ch = getch()) {
 			case 'j':
 				gameCursorMovement(courseData, &pY, &pX, ch);
@@ -49,7 +49,12 @@ void gameOperator(COURSE_DATA* courseData) {
 				/* モードをタイムアタックに変更 */
 				mode = 2;
 
+				clear();
+
 				break;
+			case 'q':
+				return ;
+				
 		}
 
 		/* ゴールの確認 */
@@ -62,6 +67,8 @@ void gameOperator(COURSE_DATA* courseData) {
 
 	/* モードを終了に変更 */
 	mode = 3;
+
+	clear();
 
 	/* タイムを計算する */
 	result = time(NULL) - st;

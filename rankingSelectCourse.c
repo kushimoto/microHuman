@@ -11,7 +11,8 @@ int rankingSelectCourse(int *r, char** courseList) {
 
 	name = rankingDrawMenu(courseList);
 
-	rankingGetData(name, r);
+	if (name != NULL)
+		rankingGetData(name, r);
 
 	if (r[0] == 0)
 		return 1;
