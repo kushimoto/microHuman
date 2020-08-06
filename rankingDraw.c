@@ -31,11 +31,11 @@ void rankingDraw(int *r) {
 	mvprintw(pointY, pointX, "RANK TIME");
 	pointY += 2;
 
-	for (int j = 0; j < i; j++)
-		if ( ( j < (i - 1) ) && (r[j] == r[j + 1]) )
-			mvprintw(pointY++, pointX, " %d.   %ds", rankNum, r[j]);
-		else
-			mvprintw(pointY++, pointX, " %d.   %ds", rankNum++, r[j]);
+	for (int j = 0; j < i; j++) {
+		mvprintw(pointY++, pointX, " %d.   %ds", rankNum, r[j]);
+		if ( ( j < ( i - 1) ) && (r[j] != r[j + 1]) )
+			rankNum = j + 2;
+	}
 
 	/* 画面更新 */
 	refresh();		

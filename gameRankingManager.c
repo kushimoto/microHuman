@@ -4,12 +4,14 @@ int gameRankingManager(time_t t, COURSE_DATA* courseData) {
 
 	FILE *fp;
 	char rankingFile[N] = "./";
-	int rank = 0;
+	int rank = 1;
 
 	for (int i = 0; i < RANK_LIMIT; i++) {
+
 		if (courseData->rankingData[i] > t) {
-			
-			rank = i + 1;
+
+			if ( ( i > 0) && (t != courseData->rankingData[i - 1]) )
+				rank = i + 1;
 
 			if (courseData->rankingData[i] == 2147483647) {
 				courseData->rankingData[i] = t;
@@ -23,7 +25,12 @@ int gameRankingManager(time_t t, COURSE_DATA* courseData) {
 
 			break;
 
-		}
+		} else if ( ( i > 0) && (courseData->rankingData[i] != courseData->rankingData[i - 1]) )
+			rank = i + 1;
+ 
+
+		if (i >= ( RANK_LIMIT - 1) )
+			rank++;
 	}
 
 	/* コース名からコースファイル名を作成 */
